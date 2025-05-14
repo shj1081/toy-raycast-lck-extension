@@ -1,0 +1,11 @@
+{
+    "go.goroot": "/Users/hyzoon/.local/share/mise/installs/go/1.24.2",
+    "debug.javascript.defaultRuntimeExecutable": {
+        "pwa-node": "/Users/hyzoon/.local/share/mise/shims/node"
+    },
+    "python.defaultInterpreterPath": "/Users/hyzoon/.local/share/mise/installs/python/3.12.3/bin/python",
+    "go.alternateTools": {
+        "go": "/Users/hyzoon/.local/share/mise/shims/go",
+        "gopls": "/Users/hyzoon/.local/share/mise/shims/gopls"
+    }
+}
