@@ -29,8 +29,8 @@ This extension fetches data from the NAVER eSports API:
 ## Screenshot
 
 ### lck schedule command
-![lck-schedule](/assets/lck-schedule.png)
+![lck-schedule](/screenshot//lck-schedule.png)
 
 
 ### lck team rankings command
-![lck-team-ranking](/assets/lck-team-ranking.png)
+![lck-team-ranking](/screenshot//lck-team-ranking.png)
