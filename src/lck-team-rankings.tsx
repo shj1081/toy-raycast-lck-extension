@@ -48,30 +48,18 @@ export default function Command() {
     if (!searchText) return true;
     const lowerSearchText = searchText.toLowerCase();
     return (
-      team.team.name.toLowerCase().includes(lowerSearchText) || 
+      team.team.name.toLowerCase().includes(lowerSearchText) ||
       team.team.nameEng.toLowerCase().includes(lowerSearchText) ||
       team.team.nameEngAcronym.toLowerCase().includes(lowerSearchText)
     );
   };
-  
-  // 검색어에 따라 필터링된 팀 목록 (순위 유지)
-  const filteredTeams = teams.filter(team => filterTeam(team, searchText));
-  
-  return (
-    <List 
-      isLoading={isLoading} 
-      searchBarPlaceholder="팀명 검색"
-      onSearchTextChange={setSearchText}
-    >
-      {filteredTeams.map((team) => {
-        // 순위에 따른 색상 지정
-        let rankColor = Color.PrimaryText;
-        if (team.rank <= 3) {
-          rankColor = Color.Green;
-        } else if (team.rank >= 9) {
-          rankColor = Color.Red;
-        }
 
+  // 검색어에 따라 필터링된 팀 목록 (순위 유지)
+  const filteredTeams = teams.filter((team) => filterTeam(team, searchText));
+
+  return (
+    <List isLoading={isLoading} searchBarPlaceholder="팀명 검색" onSearchTextChange={setSearchText}>
+      {filteredTeams.map((team) => {
         return (
           <List.Item
             key={team.teamId}
@@ -81,7 +69,12 @@ export default function Command() {
             accessories={[
               { text: formatRecord(team.wins, team.loses), tooltip: "승-패" },
               { text: formatWinRate(team.winRate), tooltip: "승률" },
-              { tag: { value: `${team.score > 0 ? "+" : ""}${team.score}`, color: team.score > 0 ? Color.Green : team.score < 0 ? Color.Red : Color.PrimaryText } }
+              {
+                tag: {
+                  value: `${team.score > 0 ? "+" : ""}${team.score}`,
+                  color: team.score > 0 ? Color.Green : team.score < 0 ? Color.Red : Color.PrimaryText,
+                },
+              },
             ]}
           />
         );
